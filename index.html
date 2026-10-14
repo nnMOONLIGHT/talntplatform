@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Фреймлёт — твои работы. твои правила</title>
-<link rel="icon" type="image/png" href="assets/logo-icon.png">
+<link rel="icon" type="image/png" href="./logo-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
@@ -1232,7 +1232,7 @@ function paintAvatar(el, user){
 function setAvatarPhoto(file){
   if(!state.user) return toast('Сначала войди в аккаунт','i-user');
   if(!file) return;
-  if(!/^image\\/(jpeg|png|webp)$/.test(file.type)) return toast('Выбери фото в формате JPG, PNG или WebP','i-close');
+  if(!/^image\/(jpeg|png|webp)$/.test(file.type)) return toast('Выбери фото в формате JPG, PNG или WebP','i-close');
   if(file.size > 8*1024*1024) return toast('Файл больше 8 МБ','i-close');
   const reader = new FileReader();
   reader.onerror = ()=>toast('Не удалось прочитать фото. Попробуй другой файл','i-close');
