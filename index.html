@@ -1148,9 +1148,13 @@ function submitRegister(){
   const agree = document.getElementById('regAgreeData').checked;
   document.getElementById('regError').classList.add('hide');
 
-  if(!fio || !dob || !city || !email || !pass){ showRegError('Заполни все поля формы.'); return; }
+  if(!fio || !dob || !city || !email || !pass || !pass2){ showRegError('Заполни все поля формы.'); return; }
   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ showRegError('Проверь формат email.'); return; }
-  if(pass.length<4){ showRegError('Пароль должен быть не короче 4 символов.'); return; }
+  const ageCheck = calcAge(dob);
+  if(ageCheck===null || ageCheck<0){ showRegError('Укажи корректную дату рождения.'); return; }
+  if(state.role==='school' && (ageCheck<14 || ageCheck>17)){ showRegError('Для роли «Школьник» возраст должен быть от 14 до 17 лет.'); return; }
+  if(state.role==='student' && ageCheck<14){ showRegError('Для регистрации нужен возраст от 14 лет.'); return; }
+  if(pass.length<8){ showRegError('Пароль должен содержать не менее 8 символов.'); return; }
   if(pass!==pass2){ showRegError('Пароли не совпадают.'); return; }
   if(!agree){ showRegError('Нужно согласие на обработку персональных данных.'); return; }
 
@@ -1197,7 +1201,7 @@ function submitLogin(){
   const err = document.getElementById('loginError');
   err.classList.add('hide');
   if(!email || !pass){ err.textContent='Введи email и пароль.'; err.classList.remove('hide'); return; }
-  if(!/^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$/.test(email)){ err.textContent='Проверь формат email.'; err.classList.remove('hide'); return; }
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ err.textContent='Проверь формат email.'; err.classList.remove('hide'); return; }
   const users = loadUsers();
   const user = users.find(u=>u.email===email && u.passHash===obfuscate(pass));
   if(!user){ err.textContent='Неверный email или пароль.'; err.classList.remove('hide'); return; }
