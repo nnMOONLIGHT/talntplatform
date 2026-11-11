@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
-/* ============ TOKENS ============ */
+
 :root{
   --ink:#12142c; --ink-2:#1b1e45; --ink-3:#262b63;
   --bg:#f5f3fb; --surface:#ffffff; --surface-2:#faf9ff;
@@ -73,7 +73,7 @@ a{color:inherit}
 .hide{display:none!important}
 @media (prefers-reduced-motion: reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 
-/* ============ PRIMITIVES ============ */
+
 .btn{border:0;border-radius:14px;padding:13px 19px;font-weight:700;font-size:14.5px;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;transition:transform .15s ease,filter .15s ease}
 .btn:active{transform:scale(.97)}
 .btn.primary{background:var(--lav);color:#fff}
@@ -114,7 +114,7 @@ a{color:inherit}
 .section{margin:0 0 38px}
 .section:last-child{margin-bottom:0}
 
-/* ============ APP SHELL ============ */
+
 .app{height:100dvh;max-height:100dvh;display:grid;grid-template-columns:262px 1fr;overflow:hidden}
 .sidebar{background:var(--ink);color:#fff;padding:22px 16px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column}
 .brand{display:flex;align-items:center;gap:11px;padding:6px 8px 26px;font-weight:800;font-size:15.5px;letter-spacing:.01em;line-height:1.15}
@@ -152,7 +152,7 @@ a{color:inherit}
 .view.active{display:block;animation:fadein .25s ease}
 @keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 
-/* ============ HOME ============ */
+
 .hero{background:linear-gradient(150deg,var(--ink) 0%,var(--ink-3) 68%,#3a3390 130%);border-radius:32px;color:#fff;padding:38px;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;position:relative;overflow:hidden}
 .hero::after{content:"";position:absolute;right:-90px;top:-90px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(122,109,240,.55),transparent 70%)}
 .hero-eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
